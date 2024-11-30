@@ -1,5 +1,8 @@
 package oopcaproject;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -10,12 +13,16 @@ package oopcaproject;
  * @author Greg
  */
 public class QuizGUI extends javax.swing.JFrame {
-
+    Quiz currentQuiz;
+    
+    
+    
     /**
      * Creates new form QuizGUI
      */
     public QuizGUI() {
         initComponents();
+        
     }
 
     /**
@@ -27,6 +34,7 @@ public class QuizGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         titlLBL = new javax.swing.JLabel();
         exitBTN = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -96,6 +104,7 @@ public class QuizGUI extends javax.swing.JFrame {
         factTA.setText("QUESTION FACT\n");
         jScrollPane2.setViewportView(factTA);
 
+        buttonGroup1.add(answer1RBTN);
         answer1RBTN.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         answer1RBTN.setText("1");
         answer1RBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +113,7 @@ public class QuizGUI extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(answer2RBTN);
         answer2RBTN.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         answer2RBTN.setText("2");
         answer2RBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -112,6 +122,7 @@ public class QuizGUI extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(answer3RBTN);
         answer3RBTN.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         answer3RBTN.setText("3");
         answer3RBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -283,6 +294,7 @@ public class QuizGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton answer1RBTN;
     private javax.swing.JRadioButton answer2RBTN;
     private javax.swing.JRadioButton answer3RBTN;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton exitBTN;
     private javax.swing.JTextArea factTA;
     private javax.swing.JLabel instuctionLBL;

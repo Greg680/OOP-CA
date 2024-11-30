@@ -30,15 +30,13 @@ public class SolarQuiz extends Quiz {
         q1Choice.add("Solar");
         q1Choice.add("Water");
         q1Choice.add("Geothermal");
+        correctAns.add(1);
         
         ArrayList<String> q2Choice = new ArrayList<>();
         q2Choice.add("Germany");
         q2Choice.add("Unites States");
         q2Choice.add("China");
         q2Choice.add("India");
-        
-        //settings which of those choices is correct to those questions
-        correctAns.add(1);
         correctAns.add(2);
     }
     

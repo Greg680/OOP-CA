@@ -29,15 +29,13 @@ public class WindQuiz extends Quiz {
         q1Choice.add("Solar");
         q1Choice.add("Water");
         q1Choice.add("Geothermal");
+        correctAns.add(0);
         
         ArrayList<String> q2Choice = new ArrayList<>();
         q2Choice.add("Generateor");
         q2Choice.add("Blade");
         q2Choice.add("Rotor");
         q2Choice.add("Tower");
-        
-        //settings which of those choices is correct to those questions
-        correctAns.add(0);
         correctAns.add(1);
     }
     

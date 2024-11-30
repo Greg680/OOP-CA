@@ -30,16 +30,14 @@ public class HydroQuiz extends Quiz {
         q1Choice.add("solar");
         q1Choice.add("water");
         q1Choice.add("geothermal");
+         correctAns.add(2);
         
         ArrayList<String> q2Choice = new ArrayList<>();
         q2Choice.add("less greenhouse gases");
         q2Choice.add("requires no infrastructure");
         q2Choice.add("it is intermittent");
         q2Choice.add("uses nuclear reactions");
-        
-        //settings which of those choices is correct to those questions
-        correctAns.add(3);
-        correctAns.add(0);
+         correctAns.add(0);
     }
 //    public abstract int getNumQ();
 //    public abstract String getQ(int questionI);
