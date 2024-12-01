@@ -29,7 +29,6 @@ public class HydroQuiz extends Quiz {
         q1Choice.add("wind");
         q1Choice.add("solar");
         q1Choice.add("water");
-        q1Choice.add("geothermal");
         choice.add(q1Choice);
         correctAns.add(3);
         
@@ -37,7 +36,6 @@ public class HydroQuiz extends Quiz {
         q2Choice.add("near 5%");
         q2Choice.add("near 16%");
         q2Choice.add("near 50%");
-        q2Choice.add("near 25%");
         choice.add(q2Choice);
         correctAns.add(2);
     }

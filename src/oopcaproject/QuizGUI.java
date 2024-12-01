@@ -243,6 +243,7 @@ public class QuizGUI extends javax.swing.JFrame {
        score = 0;
        scoreTF.setText("0");
        loadQ();
+       errorTA.setText("");
     }//GEN-LAST:event_startBTNActionPerformed
 
     private void answer1RBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answer1RBTNActionPerformed
@@ -268,6 +269,10 @@ public class QuizGUI extends javax.swing.JFrame {
     private void nextBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBTNActionPerformed
         // TODO add your handling code here:
         int selectAns = 0;
+        if (currentQindex >= uQuiz.getNumQ()){
+            errorTA.setText("no more questions left quiz complete");
+            return;
+        }
         if(answer1RBTN.isSelected()){
             selectAns = 1;
         } else if (answer2RBTN.isSelected()){
