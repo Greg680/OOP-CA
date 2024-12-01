@@ -29,6 +29,7 @@ public class WindQuiz extends Quiz {
         q1Choice.add("Solar");
         q1Choice.add("Water");
         q1Choice.add("Geothermal");
+        choice.add(q1Choice);
         correctAns.add(0);
         
         ArrayList<String> q2Choice = new ArrayList<>();
@@ -36,6 +37,7 @@ public class WindQuiz extends Quiz {
         q2Choice.add("Blade");
         q2Choice.add("Rotor");
         q2Choice.add("Tower");
+        choice.add(q2Choice);
         correctAns.add(1);
     }
     

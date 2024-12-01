@@ -1,7 +1,7 @@
 package oopcaproject;
 
-import java.awt.List;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,16 +13,34 @@ import java.util.ArrayList;
  * @author Greg
  */
 public class QuizGUI extends javax.swing.JFrame {
-    Quiz currentQuiz;
-    
-    
+    UnifieQuiz uQuiz;
+    int currentQindex;
+    int score;
     
     /**
      * Creates new form QuizGUI
      */
     public QuizGUI() {
         initComponents();
-        
+        uQuiz = new UnifieQuiz();
+        currentQindex = 0;
+        score = 0;
+        loadQ();
+    }
+    
+    private void loadQ(){
+        if (currentQindex < uQuiz.getNumQ()){
+            questionTA.setText(uQuiz.getQ(currentQindex));
+            ArrayList<String> choices = uQuiz.getCh(currentQindex);
+            
+            answer1RBTN.setText(choices.get(0));
+            answer2RBTN.setText(choices.get(1));
+            answer3RBTN.setText(choices.get(2));
+            buttonGroup1.clearSelection();
+        }else {
+            JOptionPane.showMessageDialog(null, "quiz complete");
+            this.dispose();
+        }
     }
 
     /**
@@ -38,7 +56,7 @@ public class QuizGUI extends javax.swing.JFrame {
         titlLBL = new javax.swing.JLabel();
         exitBTN = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        questioTA = new javax.swing.JTextArea();
+        questionTA = new javax.swing.JTextArea();
         instuctionLBL = new javax.swing.JLabel();
         nextBTN = new javax.swing.JButton();
         scoreLBL = new javax.swing.JLabel();
@@ -67,11 +85,11 @@ public class QuizGUI extends javax.swing.JFrame {
             }
         });
 
-        questioTA.setColumns(20);
-        questioTA.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        questioTA.setRows(5);
-        questioTA.setText("QUESTIONS WILL BE DISPLAYED HERE");
-        jScrollPane1.setViewportView(questioTA);
+        questionTA.setColumns(20);
+        questionTA.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        questionTA.setRows(5);
+        questionTA.setText("QUESTIONS WILL BE DISPLAYED HERE");
+        jScrollPane1.setViewportView(questionTA);
 
         instuctionLBL.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         instuctionLBL.setText("Select one of the three buttons");
@@ -301,7 +319,7 @@ public class QuizGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton nextBTN;
-    private javax.swing.JTextArea questioTA;
+    private javax.swing.JTextArea questionTA;
     private javax.swing.JLabel scoreLBL;
     private javax.swing.JTextField scoreTF;
     private javax.swing.JButton startBTN;

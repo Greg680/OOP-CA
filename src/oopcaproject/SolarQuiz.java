@@ -30,6 +30,7 @@ public class SolarQuiz extends Quiz {
         q1Choice.add("Solar");
         q1Choice.add("Water");
         q1Choice.add("Geothermal");
+        choice.add(q1Choice);
         correctAns.add(1);
         
         ArrayList<String> q2Choice = new ArrayList<>();
@@ -37,6 +38,7 @@ public class SolarQuiz extends Quiz {
         q2Choice.add("Unites States");
         q2Choice.add("China");
         q2Choice.add("India");
+        choice.add(q2Choice);
         correctAns.add(2);
     }
     
