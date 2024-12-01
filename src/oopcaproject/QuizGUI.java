@@ -38,8 +38,7 @@ public class QuizGUI extends javax.swing.JFrame {
             answer3RBTN.setText(choices.get(2));
             buttonGroup1.clearSelection();
         }else {
-            JOptionPane.showMessageDialog(null, "quiz complete");
-            this.dispose();
+           errorTA.setText("quiz complete");
         }
     }
 
@@ -62,7 +61,7 @@ public class QuizGUI extends javax.swing.JFrame {
         scoreLBL = new javax.swing.JLabel();
         startBTN = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        factTA = new javax.swing.JTextArea();
+        errorTA = new javax.swing.JTextArea();
         answer1RBTN = new javax.swing.JRadioButton();
         answer2RBTN = new javax.swing.JRadioButton();
         answer3RBTN = new javax.swing.JRadioButton();
@@ -116,11 +115,10 @@ public class QuizGUI extends javax.swing.JFrame {
             }
         });
 
-        factTA.setColumns(20);
-        factTA.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        factTA.setRows(5);
-        factTA.setText("QUESTION FACT\n");
-        jScrollPane2.setViewportView(factTA);
+        errorTA.setColumns(20);
+        errorTA.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        errorTA.setRows(5);
+        jScrollPane2.setViewportView(errorTA);
 
         buttonGroup1.add(answer1RBTN);
         answer1RBTN.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -199,9 +197,9 @@ public class QuizGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(scoreLBL)
-                .addGap(18, 18, 18)
-                .addComponent(scoreTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(238, 238, 238))
+                .addGap(45, 45, 45)
+                .addComponent(scoreTF, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(232, 232, 232))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,9 +229,9 @@ public class QuizGUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(scoreTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(scoreLBL))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))))
+                        .addContainerGap())))
         );
 
         pack();
@@ -241,7 +239,10 @@ public class QuizGUI extends javax.swing.JFrame {
 
     private void startBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBTNActionPerformed
         // TODO add your handling code here:
-       
+       currentQindex = 0;
+       score = 0;
+       scoreTF.setText("0");
+       loadQ();
     }//GEN-LAST:event_startBTNActionPerformed
 
     private void answer1RBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answer1RBTNActionPerformed
@@ -266,6 +267,26 @@ public class QuizGUI extends javax.swing.JFrame {
 
     private void nextBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBTNActionPerformed
         // TODO add your handling code here:
+        int selectAns = 0;
+        if(answer1RBTN.isSelected()){
+            selectAns = 1;
+        } else if (answer2RBTN.isSelected()){
+            selectAns = 2;
+        } else if (answer3RBTN.isSelected()){
+            selectAns = 3;
+        }
+        
+        if(selectAns != 0){
+            if(uQuiz.getCorrectAnsI(currentQindex) == selectAns) {
+                score++;
+            }
+                scoreTF.setText(String.valueOf(score));
+                currentQindex++;
+                loadQ();
+                errorTA.setText("");
+        }else{
+            errorTA.setText("choose an answer first");
+        }
     }//GEN-LAST:event_nextBTNActionPerformed
 
     private void answer3RBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answer3RBTNActionPerformed
@@ -313,8 +334,8 @@ public class QuizGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton answer2RBTN;
     private javax.swing.JRadioButton answer3RBTN;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextArea errorTA;
     private javax.swing.JButton exitBTN;
-    private javax.swing.JTextArea factTA;
     private javax.swing.JLabel instuctionLBL;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
