@@ -16,7 +16,7 @@ public class HydroQuiz extends Quiz {
     private final ArrayList<ArrayList<String>> choice;//this allows me to store the questions and have those questions have the answers stores within.
     private final ArrayList<Integer> correctAns;
     
-    public HydroQuiz() {//initializing variables
+    public HydroQuiz() {//initializing variables //allows for easier execution later in the UnifieQuiz class
         questions = new ArrayList<>();
         choice = new ArrayList<>();
         correctAns = new ArrayList<>();
@@ -29,21 +29,16 @@ public class HydroQuiz extends Quiz {
         q1Choice.add("wind");
         q1Choice.add("solar");
         q1Choice.add("water");
-        choice.add(q1Choice);
-        correctAns.add(3);
+        choice.add(q1Choice);//choices added
+        correctAns.add(3);// answer from choices added
         
         ArrayList<String> q2Choice = new ArrayList<>();
         q2Choice.add("near 5%");
         q2Choice.add("near 16%");
         q2Choice.add("near 50%");
-        choice.add(q2Choice);
-        correctAns.add(2);
+        choice.add(q2Choice);//choices added
+        correctAns.add(2);//answer from chocices added
     }
-//    public abstract int getNumQ();
-//    public abstract String getQ(int questionI);
-//    
-//    public abstract ArrayList<String> getCh(int questionI);
-//    public abstract int getCorrectAnsI(int questionI);
     
     @Override
     public int getNumQ(){
@@ -61,8 +56,4 @@ public class HydroQuiz extends Quiz {
     public int getCorrectAnsI(int questionI){
         return correctAns.get(questionI);
     }
-    
-    
-    
-    
 }

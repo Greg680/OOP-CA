@@ -15,14 +15,14 @@ public class UnifieQuiz extends Quiz {
     private final ArrayList<ArrayList<String>> allCh;//this allows me to store the questions and have those questions have the answers stores within.
     private final ArrayList<Integer> allAns;
 
-    public UnifieQuiz() {
+    public UnifieQuiz() { //methods to store all questions from all three classes SolarQuiz, HydroQuiz and Windquiz // allows for easier execution in the GUI class later on
         allQ = new ArrayList<>();
         allCh = new ArrayList<>();
         allAns = new ArrayList<>();
         
         //adding questions and choices from each quizz class
         SolarQuiz solar = new SolarQuiz();
-        for(int i = 0; i <solar.getNumQ(); i++){
+        for(int i = 0; i <solar.getNumQ(); i++){ //cycles through each classes methods and retrieves questions, choices and answers
             allQ.add(solar.getQ(i));
             allCh.add(solar.getCh(i));
             allAns.add(solar.getCorrectAnsI(i));
@@ -43,7 +43,7 @@ public class UnifieQuiz extends Quiz {
         }
     }
     @Override
-    public int getNumQ(){
+    public int getNumQ(){ //uses the methods from Quiz class to be used in the GUI class
         return allQ.size();
     }
     @Override

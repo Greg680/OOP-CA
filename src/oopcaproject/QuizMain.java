@@ -10,7 +10,7 @@ package oopcaproject;
  */
 public class QuizMain {
     public static void main(String[] args){
-        QuizGUI qGUI = new QuizGUI();
+        QuizGUI qGUI = new QuizGUI(); //used to start the GUI class
         qGUI.setVisible(true);
     }
 }

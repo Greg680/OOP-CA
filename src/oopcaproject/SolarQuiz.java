@@ -16,7 +16,7 @@ public class SolarQuiz extends Quiz {
     private final ArrayList<ArrayList<String>> choice;//this allows me to store the questions and have those questions have the answers stores within.
     private final ArrayList<Integer> correctAns;
     
-    public SolarQuiz() {//initializing variables
+    public SolarQuiz() {//initializing variables//allows for easier execution later in the UnifieQuiz class
         questions = new ArrayList<>();
         choice = new ArrayList<>();
         correctAns = new ArrayList<>();
@@ -29,15 +29,15 @@ public class SolarQuiz extends Quiz {
         q1Choice.add("Wind");
         q1Choice.add("Solar");
         q1Choice.add("Water");
-        choice.add(q1Choice);
-        correctAns.add(2);
+        choice.add(q1Choice);//choices added
+        correctAns.add(2);// answer from choices added
         
         ArrayList<String> q2Choice = new ArrayList<>();
         q2Choice.add("Germany");
         q2Choice.add("Unites States");
         q2Choice.add("China");
-        choice.add(q2Choice);
-        correctAns.add(3);
+        choice.add(q2Choice);//choices added
+        correctAns.add(3);// answer from choices added
     }
     
     @Override
@@ -57,34 +57,6 @@ public class SolarQuiz extends Quiz {
         return correctAns.get(questionI);
     }
 }
-    
-    
-    
-//    private int qTotal;
-//    private int quizScore;
-//
-//    public SolarQuiz(int qTotal) {
-//        this.qTotal = qTotal;
-//        this.quizScore = 0; //score is set as zero from the start
-//    }
-//    
-//    public int getScore(){
-//        return quizScore;
-//    }
-//    
-//    public void reset() {
-//        quizScore = 0;
-//    }
-//    
-////    public void updScore(){//im going to have a method of checking if a answer is correct and incrementing it here
-////        if(correct){
-////            score++;
-////        }
-////    }
-//    
-//    public void quizFinished(){//marks the quiz as finished, used in Quiz.java
-//        System.out.println("quiz is finished");
-//    }
     
     
     
